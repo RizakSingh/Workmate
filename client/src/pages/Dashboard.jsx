@@ -1,9 +1,25 @@
-import React from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import PageWrapper from "../components/PageWrapper";
 
-const Dashboard = () => {
+export default function Dashboard() {
   return (
-      <h1 className="text-2xl text-black p-6">Dashboard Page</h1>
-  )
+    <PageWrapper title="Dashboard">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+        {["Email Writer", "Resume Builder", "Planner", "Summarizer"].map(
+          (tool) => (
+            <Card key={tool} className="cursor-pointer hover:shadow-lg">
+              <CardHeader>
+                <CardTitle>{tool}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Generate with AI
+                </p>
+              </CardContent>
+            </Card>
+          )
+        )}
+      </div>
+    </PageWrapper>
+  );
 }
-
-export default Dashboard

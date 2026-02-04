@@ -4,6 +4,8 @@ import Landing from "../pages/Landing";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
+import ProtectedRoute from "../components/ProtectedRoute";
+
 import Tool from "../pages/Tool";
 const AppRoutes = () => {
   return (
@@ -11,7 +13,7 @@ const AppRoutes = () => {
       <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+   <Route path="/dashboard" element={   <Dashboard /> }/>
       <Route path="/tool/:type" element={<Tool />} />
     </Routes>
   )

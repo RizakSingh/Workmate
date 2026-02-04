@@ -1,45 +1,30 @@
-import { useState } from "react";
-import api from "../api/axios";
-import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import PageWrapper from "../components/PageWrapper";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { login } = useAuth();
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await api.post("/auth/login", {
-        email,
-        password,
-      });
-      login(res.data);
-      navigate("/dashboard");
-    } catch (err) {
-      alert("Login failed");
-    }
-  };
-
+export default function Login() {
   return (
-    <form onSubmit={handleSubmit} className="p-6 space-y-4">
-      <input
-        placeholder="Email"
-        className="border p-2 w-full"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        className="border p-2 w-full"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button className="bg-black text-white px-4 py-2">
-        Login
-      </button>
-    </form>
+    <PageWrapper title="Login">
+      <div className="flex justify-center">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle>Welcome back</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <Label>Email</Label>
+              <Input placeholder="you@example.com" />
+            </div>
+            <div>
+              <Label>Password</Label>
+              <Input type="password" />
+            </div>
+            <Button className="w-full">Login</Button>
+          </CardContent>
+        </Card>
+      </div>
+    </PageWrapper>
   );
 }
-export default Login;
