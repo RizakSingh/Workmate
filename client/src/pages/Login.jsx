@@ -57,7 +57,7 @@ export default function Login() {
               />
             </div>
 
-            <Button className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+            <Button className="w-full text-white">
               Login
             </Button>
           </form>
