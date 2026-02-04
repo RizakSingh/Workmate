@@ -15,26 +15,26 @@ export default function Dashboard() {
   return (
     <PageWrapper>
       <div className="w-full max-w-5xl">
-        <h1 className="text-3xl font-bold text-center mb-8">
+        <h1 className="text-5xl font-bold text-center mb-8">
           WorkMate AI Dashboard
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {tools.map((tool) => (
             <Card
               key={tool.name}
               onClick={() => navigate(tool.path)}
               className="
-                cursor-pointer
-                bg-gradient-to-br
-                from-indigo-500 to-purple-600
-                text-white
-                hover:scale-105
-                transition
-              "
+    cursor-pointer
+    bg-white
+    text-black
+    hover:scale-105
+    transition
+    shadow-md
+  "
             >
-              <CardHeader>
-                <CardTitle className="text-center">
+              <CardHeader className="p-6 h-30 w-56 flex items-center justify-center">
+                <CardTitle className="text-center text-black text-2xl">
                   {tool.name}
                 </CardTitle>
               </CardHeader>
