@@ -1,17 +1,11 @@
 import express from "express";
+import { runTool } from "../controllers/ai.controller.js";
 import { protect } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-// 👇 middleware applied to ALL routes below
 router.use(protect);
 
-router.post("/email", (req, res) => {
-  res.json({ message: "AI email generated" });
-});
-
-router.post("/resume", (req, res) => {
-  res.json({ message: "AI resume generated" });
-});
+router.post("/:tool", runTool);
 
 export default router;
